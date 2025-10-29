@@ -1,0 +1,76 @@
+/* Block */
+.local-storage-demo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 50px;
+}
+
+/* Elements */
+.local-storage-demo__title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.local-storage-demo__label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.local-storage-demo__input-group {
+    display: flex;
+    align-items: center;
+}
+
+.local-storage-demo__input {
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    width: 200px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.local-storage-demo__saved-name {
+    font-size: 1em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.local-storage-demo__display-name {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.local-storage-demo__button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    color:white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+
+}
+.local-storage-demo__button--clear {
+    color:#000000;
+    background-color: lightgray
+}
+.local-storage-demo__button--save:disabled{
+    background-color: gray;
+    cursor: not-allowed;
+}
+.local-storage-demo__button--save {
+       background-color: #007BFF;
+
+}
+.local-storage-demo__button-group {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.local-storage-demo__message {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #666;
+}
