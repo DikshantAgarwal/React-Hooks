@@ -43,13 +43,14 @@ function useLocalStorage(key, initialValue) {
             });
         } catch (error) {
             console.warn(`Error setting localStorage key "${key}":`, error);
+            return error
         }
     };
 
     // Remove function - React Compiler will optimize if needed
     const removeValue = () => {
         try {
-            setStoredValue(initialValue);
+            setStoredValue("");
             if (typeof window !== 'undefined') {
                 window.localStorage.removeItem(key);
             }
