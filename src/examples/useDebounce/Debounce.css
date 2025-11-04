@@ -1,0 +1,395 @@
+/* Block */
+.debounce {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Block State Modifiers */
+.debounce--idle {
+    background-color: #ffffff;
+}
+
+.debounce--typing {
+    background-color: #fffef8;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.1);
+}
+
+.debounce--loading {
+    background-color: #f8faff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.debounce--success {
+    background-color: #f8fff8;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.1);
+}
+
+.debounce--error {
+    background-color: #fff8f8;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.1);
+}
+
+/* Elements */
+.debounce__title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.debounce__label {
+    display: flex;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #555;
+    gap:8px;
+}
+
+.debounce__input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.debounce__input {
+    width: 100%;
+    padding: 12px 20px 12px 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.debounce__input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Input state variations */
+.debounce__input--typing {
+    border-color: #ffc107;
+    background-color: #fffdf0;
+}
+
+.debounce__input--loading {
+    border-color: #007bff;
+    background-color: #f8f9fa;
+}
+
+.debounce__input--success {
+    border-color: #28a745;
+    background-color: #f8fff8;
+}
+
+.debounce__input--error {
+    border-color: #dc3545;
+    background-color: #fff8f8;
+}
+
+.debounce__input--idle {
+    border-color: #ddd;
+    background-color: #fff;
+}
+
+/* Input icon */
+.debounce__input-icon {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+.debounce__spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Progress Bar */
+.debounce__progress-container {
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.debounce__progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.debounce__progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ffc107, #fd7e14);
+    border-radius: 2px;
+    transition: width 0.1s ease-out;
+    animation: progressPulse 1s ease-in-out infinite alternate;
+}
+
+.debounce__progress-text {
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-align: center;
+    font-style: italic;
+}
+
+@keyframes progressPulse {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.debounce__status {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #666;
+    min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+}
+
+/* Status State Modifiers */
+.debounce__status--idle {
+    opacity: 0.7;
+}
+
+.debounce__status--typing {
+    background-color: #fff9e6;
+    border-left: 3px solid #ffc107;
+    padding-left: 12px;
+}
+
+.debounce__status--loading {
+    background-color: #e3f2fd;
+    border-left: 3px solid #007bff;
+    padding-left: 12px;
+}
+
+.debounce__status--success {
+    background-color: #e8f5e8;
+    border-left: 3px solid #28a745;
+    padding-left: 12px;
+}
+
+.debounce__status--error {
+    background-color: #ffebee;
+    border-left: 3px solid #dc3545;
+    padding-left: 12px;
+}
+
+/* Status Message Modifiers */
+.debounce__status-message {
+    padding: 8px 0;
+    transition: all 0.3s ease;
+}
+
+.debounce__status-message--loading {
+    color: #007bff;
+    animation: pulse 2s infinite;
+}
+
+.debounce__status-message--success {
+    color: #28a745;
+    animation: fadeInUp 0.5s ease;
+}
+
+.debounce__status-message--error {
+    color: #dc3545;
+    animation: shake 0.5s ease;
+}
+
+.debounce__status-message--idle {
+    color: #6c757d;
+}
+.debounce__status-message--typing {
+    color: #ffc107;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.debounce__loading {
+    color: #007bff;
+}
+
+.debounce__no-results {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
+.debounce__api-result {
+    margin-top: 20px;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* API Result State Modifiers */
+.debounce__api-result--idle {
+    opacity: 0.5;
+    border-color: #e9ecef;
+}
+
+.debounce__api-result--typing {
+    border-color: #ffc107;
+    background-color: #fffef8;
+}
+
+.debounce__api-result--loading {
+    border-color: #007bff;
+    background-color: #f8faff;
+    position: relative;
+}
+
+.debounce__api-result--loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #007bff, transparent);
+    animation: loading-bar 2s infinite;
+}
+
+.debounce__api-result--success {
+    border-color: #28a745;
+    background-color: #f8fff8;
+}
+
+.debounce__api-result--error {
+    border-color: #dc3545;
+    background-color: #fff8f8;
+}
+
+@keyframes loading-bar {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.debounce__result-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.debounce__result-list--populated {
+    animation: slideIn 0.5s ease;
+}
+
+.debounce__result-item {
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.debounce__result-item:hover {
+    background-color: #f8f9fa;
+    transform: translateX(4px);
+}
+
+.debounce__result-item--even {
+    background-color: #f8f9fa;
+}
+
+.debounce__result-item--odd {
+    background-color: #ffffff;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.debounce__loading--active {
+    color: #007bff;
+    animation: pulse 1.5s infinite;
+}
+
+.debounce__error--visible {
+    color: #dc3545;
+    animation: shake 0.5s ease;
+}
+
+.debounce__no-results--empty {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-style: italic;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.debounce__result-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.debounce__api-count {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #444;
+    font-weight: bold;
+    display: flex;
+    text-align: center;
+}
+
+.debounce__keystroke-count {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #444;
+    font-weight: bold;
+    display: flex;
+    text-align: center;
+
+}
+
