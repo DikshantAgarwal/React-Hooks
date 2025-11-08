@@ -1,24 +1,33 @@
-import { useState, useReducer, useEffect, useRef, useCallback, useMemo } from "react";
+import {useReducer, useEffect, useRef, useCallback, useMemo } from "react";
 
 function reducer(s, a) {
   return { ...s, ...a };
 }
 
+const STATUS = {
+  IDLE: "idle",
+  LOADING: "loading",
+  FETCHED: "fetched",
+  ERROR: "error",
+}
 const defaultInitialState = {
   data: null,
-  status: "idle",
+  status: STATUS.IDLE,
   error: null,
 };
 
+
 function useFetch(url, initialState = defaultInitialState, options = {}) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  let isCancelled = useRef(false);
 
+  const abortControllerRef = useRef(null);
   const stableOptions =  useMemo(() => options, [JSON.stringify(options)]);
 
-  const fetchData = useCallback(() => {
-    dispatch({ status: "loading" ,data: null, error: null}); // Reset state before new request
-    fetch(url, stableOptions)
+  const fetchData = useCallback((overrideUrl) => {
+     abortControllerRef.current?.abort(); // cancel any previous fetch
+     abortControllerRef.current = new AbortController();
+    dispatch({ status: STATUS.LOADING, data: null, error: null }); // Reset state before new request
+    fetch(overrideUrl || url, stableOptions)
       .then((res) => {
         
         if (!res.ok) {
@@ -27,20 +36,20 @@ function useFetch(url, initialState = defaultInitialState, options = {}) {
         return res.json();
       })
       .then((data) => {
-        if (!isCancelled.current) dispatch({ data: data, status: "fetched" });
+        dispatch({ data: data, status: STATUS.FETCHED, error: null });
       })
       .catch((error) => {
-        if (!isCancelled.current) dispatch({ error: error, status: "error" });
+       dispatch({ error: error, status: STATUS.ERROR });
       });
   }, [url, stableOptions]);
 
-  useEffect(() => {
+  useEffect(() => { 
     fetchData();
 
     return () => {
-      isCancelled.current = true;
+      abortControllerRef.current?.abort();
     };
-  }, [url, options, fetchData]);
+  }, [url,fetchData]);
 
   if (!url || typeof url !== "string") {
     return { ...defaultInitialState, refetch: () => {} };
