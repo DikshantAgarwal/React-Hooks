@@ -1,10 +1,10 @@
-import {useReducer, useEffect, useRef, useCallback, useMemo } from "react";
+import {useReducer, useRef, useCallback, useMemo, useEffect } from "react";
 
 function reducer(s, a) {
   return { ...s, ...a };
 }
 
-const STATUS = {
+export const STATUS = {
   IDLE: "idle",
   LOADING: "loading",
   FETCHED: "fetched",
@@ -12,6 +12,7 @@ const STATUS = {
 }
 const defaultInitialState = {
   data: null,
+  duration:null,
   status: STATUS.IDLE,
   error: null,
 };
@@ -19,15 +20,20 @@ const defaultInitialState = {
 
 function useFetch(url, initialState = defaultInitialState, options = {}) {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   const abortControllerRef = useRef(null);
-  const stableOptions =  useMemo(() => options, [JSON.stringify(options)]);
+  
+  const optionsString = JSON.stringify(options);
+  const stableOptions = useMemo(() => options, [optionsString]);
 
   const fetchData = useCallback((overrideUrl) => {
+
+    console.log('useFetch fetchData called with URL:', overrideUrl || url);
      abortControllerRef.current?.abort(); // cancel any previous fetch
      abortControllerRef.current = new AbortController();
     dispatch({ status: STATUS.LOADING, data: null, error: null }); // Reset state before new request
-    fetch(overrideUrl || url, stableOptions)
+
+    const start = performance.now();
+    fetch(overrideUrl || url, { ...stableOptions, signal: abortControllerRef.current.signal })
       .then((res) => {
         
         if (!res.ok) {
@@ -36,26 +42,24 @@ function useFetch(url, initialState = defaultInitialState, options = {}) {
         return res.json();
       })
       .then((data) => {
-        dispatch({ data: data, status: STATUS.FETCHED, error: null });
-      })
+        const end = performance.now();
+        dispatch({ data: data, status: STATUS.FETCHED, error: null ,duration: (end - start).toFixed(0) });
+      }
+      )
       .catch((error) => {
        dispatch({ error: error, status: STATUS.ERROR });
       });
   }, [url, stableOptions]);
 
-  useEffect(() => { 
-    fetchData();
 
-    return () => {
-      abortControllerRef.current?.abort();
-    };
-  }, [url,fetchData]);
 
-  if (!url || typeof url !== "string") {
-    return { ...defaultInitialState, refetch: () => {} };
-  }
+  useEffect(() => {
+    if (!url) return;
+    fetchData();  
+  }, [url, fetchData]);
 
-  return { ...state, refetch: fetchData };
+
+  return { ...state, refetch: fetchData,cancel: () => abortControllerRef.current?.abort() };
 }
 
 export { useFetch };
