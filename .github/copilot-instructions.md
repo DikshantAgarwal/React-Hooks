@@ -6,10 +6,11 @@ This is a React + Vite project showcasing custom React hooks with interactive de
 ## Architecture Patterns
 
 ### Custom Hooks Structure (`src/hooks/`)
-- **Export Pattern**: Hooks export named exports, not default exports
+- **Export Pattern**: Hooks export named exports, not default exports (e.g., `export { useFetch }`)
 - **Error Handling**: All hooks include validation and throw descriptive errors for invalid inputs
 - **State Management**: Use `useReducer` for complex state (e.g., `useFetch`), `useState` for simple state
 - **Cleanup**: Always implement cleanup for side effects (timers, fetch abort controllers)
+- **Index Export**: All hooks must be re-exported in `src/hooks/index.js` with consistent naming
 
 ### Demo Components (`src/examples/`)
 Each demo follows this structure:
@@ -36,9 +37,10 @@ Example from `FetchDemo.css`:
 
 ### useFetch Hook Pattern
 - Uses `useReducer` with status constants (`STATUS.IDLE`, `STATUS.LOADING`, etc.)
-- Implements abort controller for request cancellation
-- Returns state + `refetch` function + `STATUS` constants
+- Implements abort controller for request cancellation  
+- Returns state + `refetch` function + `cancel` function + `STATUS` constants
 - Manual triggering (no auto-fetch on mount) - controlled by components
+- Includes performance timing (`duration` field in response)
 
 ### Error Boundaries & Validation
 Every custom hook validates inputs and throws meaningful errors:
@@ -47,6 +49,19 @@ if (!key || typeof key !== 'string') {
     throw new Error('useLocalStorage: key must be a non-empty string');
 }
 ```
+
+## Critical Code Issues to Watch
+
+### Export/Import Consistency
+- **BUG**: `src/hooks/index.js` has inconsistent exports (LocalStorage vs useLocalStorage)
+- **BUG**: `usePrevious.js` function is incorrectly named `useFetch` instead of `usePrevious`
+- Always verify hook names match file names and exports match imports
+
+### Hook Development Checklist
+1. Function name matches filename (e.g., `usePrevious.js` → `function usePrevious()`)
+2. Export uses correct hook name: `export { usePrevious }`
+3. Add to `src/hooks/index.js` with matching name
+4. Create demo component following file structure pattern
 
 ### State Visual Indicators
 Components provide real-time visual feedback using CSS classes based on state:
@@ -63,10 +78,10 @@ Components provide real-time visual feedback using CSS classes based on state:
 - Memoization handled by compiler, avoid manual `useMemo` unless necessary
 
 ### Component Development
-1. Create hook in `src/hooks/` with proper exports
-2. Add hook export to `src/hooks/index.js`
+1. Create hook in `src/hooks/` with proper naming and exports
+2. Add hook export to `src/hooks/index.js` with consistent naming
 3. Create demo component in `src/examples/ComponentName/`
-4. Import and uncomment in `App.jsx` for testing
+4. Import and uncomment in `App.jsx` for testing (only one demo active at a time)
 5. Use BEM CSS methodology for styling
 
 ### Scripts
@@ -93,10 +108,12 @@ import './ComponentName.css';
 - Include counters/metrics where relevant (API calls, keystrokes)
 
 ### API Integration
-- Use real APIs for demos (dummyjson.com)
+- Use real APIs for demos (dummyjson.com, jsonplaceholder.typicode.com)
 - Implement proper error handling and loading states
-- Show request/response data in user-friendly format
+- Show request/response data in user-friendly format  
 - Include request cancellation patterns
+- Validate URLs before making requests
+- Display performance metrics (request duration)
 
 ## File Naming Conventions
 - Hooks: `useHookName.js` (camelCase)
@@ -105,7 +122,17 @@ import './ComponentName.css';
 - Exports: Named exports preferred over default exports
 
 ## Testing Patterns
-- Each demo component serves as a live test
+- Each demo component serves as a live test and interactive documentation
 - Include edge cases in demo interactions (empty inputs, network errors)
 - Provide clear visual feedback for all hook states
-- Use real-world scenarios in examples
+- Use real-world scenarios in examples (search, API calls, form validation)
+- Only one demo should be active in `App.jsx` at a time for focused testing
+
+## Known Architecture Patterns
+
+### Demo Component Structure
+- Preset configurations (URLs, test data) defined as constants
+- Input validation with user-friendly error messages
+- State metrics display (API call counts, keystroke tracking)
+- Real-time visual feedback using CSS state classes
+- Clear separation between hook state and component UI state

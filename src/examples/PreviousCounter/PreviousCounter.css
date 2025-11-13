@@ -1,0 +1,463 @@
+.previous-counter {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+/* Mode-specific container styling */
+.previous-counter--number {
+    border-left: 4px solid #007bff;
+}
+
+.previous-counter--string {
+    border-left: 4px solid #28a745;
+}
+
+.previous-counter--object {
+    border-left: 4px solid #fd7e14;
+}
+
+.previous-counter--array {
+    border-left: 4px solid #6f42c1;
+}
+
+.previous-counter__header {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.previous-counter__title {
+    color: #2c3e50;
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.previous-counter__description {
+    color: #6c757d;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Mode selector styling */
+.previous-counter__mode-selector {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.previous-counter__mode-select {
+    padding: 0.5rem 1rem;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.previous-counter__mode-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.previous-counter__content {
+    margin-bottom: 1.5rem;
+}
+
+.previous-counter__display {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.previous-counter__value {
+    text-align: center;
+}
+
+.previous-counter__label {
+    display: block;
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.previous-counter__number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    min-width: 60px;
+}
+
+.previous-counter__number--current {
+    color: #28a745;
+    background: #d4edda;
+    word-break: break-all;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.previous-counter__number--previous {
+    color: #6f42c1;
+    background: #e2d9f3;
+    word-break: break-all;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+}
+
+/* Mode-specific display colors */
+.previous-counter--number .previous-counter__number--current {
+    color: #007bff;
+    background: #cce5ff;
+}
+
+.previous-counter--string .previous-counter__number--current {
+    color: #28a745;
+    background: #d4edda;
+    font-family: 'Georgia', serif;
+}
+
+.previous-counter--object .previous-counter__number--current {
+    color: #fd7e14;
+    background: #fff3cd;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.8rem;
+}
+
+.previous-counter--array .previous-counter__number--current {
+    color: #6f42c1;
+    background: #f3e5f5;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+}
+
+.previous-counter__controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.previous-counter__button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 80px;
+}
+
+.previous-counter__history-item{
+    display: inline-block;
+    margin: 0 0.25rem 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    background: #e9ecef;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #495057;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    cursor: help;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.previous-counter__history-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mode-specific history item styling */
+.previous-counter--number .previous-counter__history-item {
+    border-color: #007bff;
+    background: #e7f3ff;
+    color: #0056b3;
+    font-weight: bold;
+}
+
+.previous-counter--string .previous-counter__history-item {
+    border-color: #28a745;
+    background: #d4edda;
+    color: #155724;
+    font-family: 'Georgia', serif;
+}
+
+.previous-counter--object .previous-counter__history-item {
+    border-color: #fd7e14;
+    background: #fff3cd;
+    color: #856404;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.8rem;
+}
+
+.previous-counter--array .previous-counter__history-item {
+    border-color: #6f42c1;
+    background: #f3e5f5;
+    color: #5a2d6a;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+.previous-counter__history-list {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.previous-counter__button--increment {
+    background: #28a745;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.previous-counter__button--increment:hover {
+    background: #218838;
+    transform: translateY(-1px);
+}
+
+/* Mode-specific increment button colors */
+.previous-counter--number .previous-counter__button--increment {
+    background: #007bff;
+}
+
+.previous-counter--number .previous-counter__button--increment:hover {
+    background: #0056b3;
+}
+
+.previous-counter--string .previous-counter__button--increment {
+    background: #28a745;
+}
+
+.previous-counter--object .previous-counter__button--increment {
+    background: #fd7e14;
+}
+
+.previous-counter--object .previous-counter__button--increment:hover {
+    background: #e8630a;
+}
+
+.previous-counter--array .previous-counter__button--increment {
+    background: #6f42c1;
+}
+
+.previous-counter--array .previous-counter__button--increment:hover {
+    background: #5a32a3;
+}
+
+.previous-counter__button--decrement {
+    background: #dc3545;
+    color: white;
+}
+
+.previous-counter__button--decrement:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+}
+
+/* Mode-specific decrement button colors */
+.previous-counter--number .previous-counter__button--decrement {
+    background: #6c757d;
+}
+
+.previous-counter--number .previous-counter__button--decrement:hover {
+    background: #5a6268;
+}
+
+.previous-counter--string .previous-counter__button--decrement {
+    background: #ffc107;
+    color: #212529;
+}
+
+.previous-counter--string .previous-counter__button--decrement:hover {
+    background: #e0a800;
+}
+
+.previous-counter--object .previous-counter__button--decrement {
+    background: #dc3545;
+}
+
+.previous-counter--array .previous-counter__button--decrement {
+    background: #e83e8c;
+}
+
+.previous-counter--array .previous-counter__button--decrement:hover {
+    background: #d91a72;
+}
+
+.previous-counter__button--reset {
+    background: #6c757d;
+    color: white;
+}
+
+.previous-counter__button--reset:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+.previous-counter__input{
+    padding: 0.75rem;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.previous-counter__input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.previous-counter__textarea {
+    padding: 0.75rem;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+    resize: vertical;
+    transition: all 0.2s ease;
+    min-height: 120px;
+}
+
+.previous-counter__textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Mode-specific input styling */
+.previous-counter--number .previous-counter__input {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-color: #007bff;
+}
+
+.previous-counter--string .previous-counter__input {
+    border-color: #28a745;
+    font-family: 'Georgia', serif;
+}
+
+.previous-counter--object .previous-counter__textarea {
+    border-color: #fd7e14;
+    background-color: #fff3cd;
+}
+
+.previous-counter--array .previous-counter__textarea {
+    border-color: #6f42c1;
+    background-color: #f3e5f5;
+}
+.previous-counter__info {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #e9ecef;
+    border-radius: 6px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.previous-counter__text {
+    margin: 0;
+    color: #495057;
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+    word-break: break-word;
+}
+
+/* Mode-specific info section styling */
+.previous-counter--number .previous-counter__info {
+    background: #e7f3ff;
+    border-color: #007bff;
+}
+
+.previous-counter--number .previous-counter__text {
+    color: #0056b3;
+}
+
+.previous-counter--string .previous-counter__info {
+    background: #d4edda;
+    border-color: #28a745;
+}
+
+.previous-counter--string .previous-counter__text {
+    color: #155724;
+    font-family: 'Georgia', serif;
+}
+
+.previous-counter--object .previous-counter__info {
+    background: #fff3cd;
+    border-color: #fd7e14;
+}
+
+.previous-counter--object .previous-counter__text {
+    color: #856404;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+}
+
+.previous-counter--array .previous-counter__info {
+    background: #f3e5f5;
+    border-color: #6f42c1;
+}
+
+.previous-counter--array .previous-counter__text {
+    color: #5a2d6a;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+/* Mode indicator badge */
+.previous-counter__mode-badge {
+    position: absolute;
+    top: -10px;
+    right: 1rem;
+    background: #007bff;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.previous-counter--number .previous-counter__mode-badge {
+    background: #007bff;
+}
+
+.previous-counter--string .previous-counter__mode-badge {
+    background: #28a745;
+}
+
+.previous-counter--object .previous-counter__mode-badge {
+    background: #fd7e14;
+}
+
+.previous-counter--array .previous-counter__mode-badge {
+    background: #6f42c1;
+}
