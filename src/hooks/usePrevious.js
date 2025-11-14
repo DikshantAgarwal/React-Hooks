@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect } from "react";
 
 /**
  * Custom hook that returns the previous value of a state or prop.
@@ -18,6 +18,8 @@ import { useRef, useEffect, useMemo } from "react";
  */
 
 function usePrevious(value, options = {}) {
+
+  console.log("usePrevious called with value:", value, "and options:", options);
   const { deep = false, debug = false, historySize = 1, resetKey } = options;
 
   const firstRender = useRef(true);
@@ -28,45 +30,55 @@ function usePrevious(value, options = {}) {
   // Check if we need to reset due to resetKey change
   const shouldReset =
     resetKey !== undefined && resetKey !== lastResetKey.current;
-    console.log("shouldReset:", shouldReset, "resetKey:", resetKey, "lastResetKey:", lastResetKey.current);
   if (shouldReset) {
     historyRef.current = [];
     lastResetKey.current = resetKey;
-    // firstRender.current = true;
+    firstRender.current = true;
   }
+  const valueChanged = firstRender.current || 
+    (deep && typeof value === "object" && value !== null ? 
+      JSON.stringify(value) !== JSON.stringify(historyRef.current[0]) :
+      historyRef.current[0] !== value);
 
-  const hasChanged = useMemo(() => {
-    if (deep && typeof value === "object" && value !== null) {
-      return JSON.stringify(value) !== JSON.stringify(historyRef.current[0]);
-    }
-
-    return historyRef.current[0] !== value;
-  }, [deep, value,]);
 
   useEffect(() => {
-    // Reset history if resetKey changed
+    // On first render or when value actually changes
 
-    if (!firstRender.current || hasChanged) {
+    console.log("hasChangesd:", valueChanged, "firstRender:", firstRender.current);
+    
+    if (valueChanged) {
       historyRef.current = [
         value,
         ...historyRef.current.slice(0, historySize - 1),
       ];
     }
     firstRender.current = false;
-  }, [value, historySize, hasChanged]);
+  }, [value, historySize, deep,valueChanged]);
 
   if (debug && !firstRender.current) {
-    console.log("usePrevious Debug:", {
+    console.log("usePrevious Debug:",firstRender.current, {
       current: value,
       previous: historyRef.current[0],
       history: historyRef.current,
     });
   }
 
-  const previousValue = historyRef.current[0];
-  const history = historyRef.current.slice(0);
+  if(valueChanged){
+    const previousValue = historyRef.current[0]; // Previous value is at index 0
+    const history = historyRef.current.slice(0); // Full history including current
 
-  return { previous: previousValue, history };
+    return { previous: previousValue, history };
+
+  } else {
+    const previousValue = historyRef.current[1]; // Previous value is at index 0
+    const history = historyRef.current.slice(1); // Full history including current
+
+    return { previous: previousValue, history };
+  }
+
+  // Debug log when needed
+  // console.log("Value has changed. Current:", value, "Previous:", previousValue);
+
 }
 
 export { usePrevious };

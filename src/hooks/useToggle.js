@@ -47,7 +47,7 @@ const useToggle = (initialValue, options = {}) => {
   const handleToggleValue = useCallback(
     (explicitValue) => {
       if (explicitValue !== undefined) {
-        return setToggleValue(explicitValue);
+           setToggleValue(explicitValue);
       }
 
       if (isBoolean) {
