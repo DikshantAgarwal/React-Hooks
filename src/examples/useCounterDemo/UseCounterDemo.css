@@ -1,0 +1,247 @@
+.use-counter-demo {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #333;
+  font-family: 'Courier New', monospace;
+  background-color: #f8f9fa;
+}
+
+/* Header */
+.use-counter-demo__header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #333;
+}
+
+.use-counter-demo__title {
+  margin: 0 0 5px 0;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.use-counter-demo__subtitle {
+  margin: 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Current Value Display */
+.use-counter-demo__current-value {
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px;
+}
+
+.use-counter-demo__value-display {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.use-counter-demo__status {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+/* Controls */
+.use-counter-demo__controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.use-counter-demo__button {
+  padding: 8px 16px;
+  border: 2px solid #333;
+  background-color: #fff;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.use-counter-demo__button:hover {
+  background-color: #e9ecef;
+}
+
+.use-counter-demo__button:active {
+  transform: scale(0.95);
+}
+
+.use-counter-demo__button--decrement,
+.use-counter-demo__button--increment {
+  min-width: 40px;
+}
+
+.use-counter-demo__button--reset {
+  background-color: #f8f9fa;
+}
+
+.use-counter-demo__button--submit {
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.use-counter-demo__button--submit:hover {
+  background-color: #0056b3;
+}
+
+.use-counter-demo__button--reset-initial {
+  width: 100%;
+  padding: 12px;
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+  margin-top: 20px;
+}
+
+.use-counter-demo__button--reset-initial:hover {
+  background-color: #545b62;
+}
+
+/* Manual Input Section */
+.use-counter-demo__manual-input {
+  margin: 20px 0;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.use-counter-demo__section-title {
+  margin: 0 0 15px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.use-counter-demo__form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.use-counter-demo__input {
+  padding: 8px 12px;
+  border: 2px solid #333;
+  font-family: 'Courier New', monospace;
+  background-color: #fff;
+  margin-right: 10px;
+  flex: 1;
+  max-width: 120px;
+}
+
+.use-counter-demo__input--small {
+  max-width: 80px;
+  margin-left: 10px;
+}
+
+.use-counter-demo__input:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+}
+
+.use-counter-demo__input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.use-counter-demo__manual-status {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.9em;
+  min-height: 1.2em;
+}
+
+/* Configuration Section */
+.use-counter-demo__configuration {
+  margin: 20px 0;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.use-counter-demo__config-row {
+  margin-bottom: 12px;
+}
+
+.use-counter-demo__label {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 10px;
+}
+
+/* Mode Selection */
+.use-counter-demo__mode-selection {
+  margin-top: 20px;
+}
+
+.use-counter-demo__mode-title {
+  margin: 0 0 10px 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.use-counter-demo__radio-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.use-counter-demo__radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.use-counter-demo__radio {
+  margin-right: 8px;
+  transform: scale(1.2);
+}
+
+.use-counter-demo__radio-text {
+  user-select: none;
+}
+
+/* Reset Section */
+.use-counter-demo__reset-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .use-counter-demo {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .use-counter-demo__controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .use-counter-demo__radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .use-counter-demo__form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .use-counter-demo__button--submit {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}

@@ -6,6 +6,7 @@ import {FetchDemo} from './examples/FetchDemo/FetchDemo';
 import {PreviousCounter } from  './examples/PreviousCounter/PreviousCounter';
 import {Toggle} from './examples/Toggle/Toggle';
 import UseInputDemo from './examples/UseInputDemo/UseInputDemo';
+import UseCounterDemo from './examples/useCounterDemo/UseCounterDemo';
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
   return (
     <>
       <h1>React Hooks</h1>
-      <UseInputDemo />
+      {/* <UseInputDemo /> */}
+      <UseCounterDemo />
        {/* <PreviousCounter/> */}
        {/* <Toggle/> */}
       {/* <FetchDemo /> */}
