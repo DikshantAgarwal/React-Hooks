@@ -6,10 +6,22 @@ import { useState, useCallback, useEffect, useRef } from 'react';
  * @param {function} handler - The event handler function.
  * @param {EventTarget | RefObject | null | undefined} target - The event target (DOM node, window, document, or ref object).
  * @returns {function} A callback ref function to attach to a React element if no target is provided.
+ * 
+ * USage:
+ * 
+ * // Example 1: Using with a specific target
+ * const divRef = useRef(null); 
+ * useEventListener('click', handleClick, divRef);
+ * 
+ * // Example 2: Using without a target (returns a callback ref)
+ * const eventListenerRef = useEventListener('click', handleClick);
+ * <div ref={eventListenerRef}>Click me</div>
+ * 
+ * On conditionally rendering elements, accepting a target ref is not recommended, you need to use the callback ref approach.
  */
-function useEventListener(eventName, handler, target) {
+function useEventListener(eventName, handler, target ) {
   const savedHandler = useRef();
-const [dynamicNode, setDynamicNode] = useState(null);
+  const [dynamicNode, setDynamicNode] = useState(null);
 
   useEffect(() => {
     savedHandler.current = handler;
@@ -33,7 +45,6 @@ const [dynamicNode, setDynamicNode] = useState(null);
     
     // Ensure the target supports addEventListener
     const isSupported = targetElement && targetElement.addEventListener;
-    console.log('Target Element:', targetElement,isSupported);
     if (!isSupported) {
       return;
     }
@@ -43,7 +54,7 @@ const [dynamicNode, setDynamicNode] = useState(null);
 
     // Add event listener
     targetElement.addEventListener(eventName, listener);
-
+ 
     // Cleanup function
     return () => {
       targetElement.removeEventListener(eventName, listener);

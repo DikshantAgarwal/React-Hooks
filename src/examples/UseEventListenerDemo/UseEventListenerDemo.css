@@ -1,0 +1,207 @@
+/* UseEventListenerDemo - BEM Methodology */
+
+.event-listener-demo {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-listener-demo__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.event-listener-demo__title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+}
+
+.event-listener-demo__divider {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #3498db, #2980b9, #3498db);
+  margin: 1rem 0;
+  border-radius: 2px;
+}
+
+.event-listener-demo__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.event-listener-demo__section {
+  background-color: #ffffff;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.event-listener-demo__section:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.event-listener-demo__section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #34495e;
+  margin: 0 0 1rem 0;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
+}
+
+.event-listener-demo__info {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.event-listener-demo__value {
+  font-weight: 700;
+  color: #e74c3c;
+  background-color: #ffeaa7;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.event-listener-demo__hint {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-style: italic;
+  margin: 0.5rem 0 0 0;
+}
+
+.event-listener-demo__button {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 1rem 0;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+.event-listener-demo__button:hover {
+  background: linear-gradient(135deg, #2980b9, #1e6b96);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+.event-listener-demo__button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+}
+
+.event-listener-demo__hover-box {
+  background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 1rem 0;
+  box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+}
+
+.event-listener-demo__hover-box:hover {
+  background: linear-gradient(135deg, #6c5ce7, #5b4cdb);
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(108, 92, 231, 0.4);
+}
+
+.event-listener-demo__scroll-box {
+  background: linear-gradient(135deg, #00b894, #00a085);
+  color: white;
+  border-radius: 8px;
+  margin: 1rem 0;
+  height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
+  border: 2px solid #00a085;
+}
+
+.event-listener-demo__scroll-content {
+  padding: 2rem;
+  line-height: 1.8;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.event-listener-demo__scroll-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.event-listener-demo__scroll-box::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.event-listener-demo__scroll-box::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.event-listener-demo__scroll-box::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.event-listener-demo__footer {
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .event-listener-demo {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .event-listener-demo__title {
+    font-size: 1.5rem;
+  }
+  
+  .event-listener-demo__section {
+    padding: 1rem;
+  }
+  
+  .event-listener-demo__button {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Animation for value changes */
+.event-listener-demo__value {
+  animation: highlight 0.3s ease-in-out;
+}
+
+@keyframes highlight {
+  0% { 
+    transform: scale(1);
+    background-color: #ffeaa7;
+  }
+  50% { 
+    transform: scale(1.05);
+    background-color: #fdcb6e;
+  }
+  100% { 
+    transform: scale(1);
+    background-color: #ffeaa7;
+  }
+}
