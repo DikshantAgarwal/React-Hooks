@@ -7,7 +7,8 @@ import {PreviousCounter } from  './examples/PreviousCounter/PreviousCounter';
 import {Toggle} from './examples/Toggle/Toggle';
 import UseInputDemo from './examples/UseInputDemo/UseInputDemo';
 import UseCounterDemo from './examples/useCounterDemo/UseCounterDemo';
-import {UseEventListenerDemo} from './examples/useEventListenerDemo/UseEventListenerDemo';
+// import {UseEventListenerDemo} from './examples/useEventListenerDemo/UseEventListenerDemo';
+import {UseHoverDemo} from './examples/UseHoverDemo/UseHoverDemo'; 
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
     <>
       <h1>React Hooks</h1>
 
-      <UseEventListenerDemo />
+      <UseHoverDemo />
+      {/* <UseEventListenerDemo /> */}
       {/* <UseInputDemo /> */}
       {/* <UseCounterDemo /> */}
        {/* <PreviousCounter/> */}

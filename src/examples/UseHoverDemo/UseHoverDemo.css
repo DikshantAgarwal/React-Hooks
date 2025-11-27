@@ -1,0 +1,240 @@
+/* UseHoverDemo - BEM Methodology */
+
+.use-hover-demo {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.use-hover-demo__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.use-hover-demo__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.use-hover-demo__divider {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+  margin: 1rem 0;
+  border-radius: 2px;
+}
+
+.use-hover-demo__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.use-hover-demo__section {
+  display: flex;
+  flex-direction: column;
+}
+
+.use-hover-demo__section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #34495e;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.use-hover-demo__card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.use-hover-demo__card--simple {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.use-hover-demo__card--simple:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  border-color: #667eea;
+}
+
+.use-hover-demo__card--advanced {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.use-hover-demo__card--advanced:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(245, 87, 108, 0.4);
+  border-color: #f5576c;
+}
+
+.use-hover-demo__card--hovered {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translateY(-5px) scale(1.02);
+  }
+  50% {
+    transform: translateY(-7px) scale(1.05);
+  }
+}
+
+.use-hover-demo__card-content {
+  text-align: center;
+  width: 100%;
+}
+
+.use-hover-demo__card-area {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+.use-hover-demo__card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.use-hover-demo__status {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.8rem 1.2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.use-hover-demo__value {
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.use-hover-demo__value--active {
+  background: rgba(46, 204, 113, 0.8);
+  color: white;
+  animation: highlight 0.5s ease-in-out;
+}
+
+@keyframes highlight {
+  0% { 
+    transform: scale(1);
+    background: rgba(46, 204, 113, 0.8);
+  }
+  50% { 
+    transform: scale(1.1);
+    background: rgba(39, 174, 96, 1);
+  }
+  100% { 
+    transform: scale(1);
+    background: rgba(46, 204, 113, 0.8);
+  }
+}
+
+.use-hover-demo__description {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  text-align: center;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.use-hover-demo__description code {
+  background: #ecf0f1;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: #e74c3c;
+  font-size: 0.85rem;
+}
+
+.use-hover-demo__footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.use-hover-demo__note {
+  font-size: 1rem;
+  color: #34495e;
+  font-weight: 500;
+  margin: 1rem 0 0 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .use-hover-demo {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .use-hover-demo__content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .use-hover-demo__title {
+    font-size: 1.8rem;
+  }
+  
+  .use-hover-demo__card {
+    min-height: 150px;
+    padding: 1.5rem;
+  }
+}
+
+/* Card hover effects for non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .use-hover-demo__card:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .use-hover-demo__card:hover::before {
+    opacity: 1;
+  }
+}
