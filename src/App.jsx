@@ -17,9 +17,9 @@ function App() {
     <>
       <h1>React Hooks</h1>
 
-      <UseHoverDemo />
+      {/* <UseHoverDemo /> */}
       {/* <UseEventListenerDemo /> */}
-      {/* <UseInputDemo /> */}
+      <UseInputDemo />
       {/* <UseCounterDemo /> */}
        {/* <PreviousCounter/> */}
        {/* <Toggle/> */}

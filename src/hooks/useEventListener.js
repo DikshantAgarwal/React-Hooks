@@ -53,7 +53,13 @@ function useEventListener(eventName, handler, target ) {
     const listener = (event) => savedHandler.current(event);
 
     // Add event listener
-    targetElement.addEventListener(eventName, listener);
+    if(Array.isArray(eventName)){
+        eventName.forEach((evName)=>{
+            targetElement.addEventListener(evName, listener);
+        });
+    } else {
+        targetElement.addEventListener(eventName, listener);
+    }
  
     // Cleanup function
     return () => {

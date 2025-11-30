@@ -3,7 +3,7 @@ import { useEventListener } from './useEventListener';
 
 
 function useHover(otherRef) {
-console.log("useHover called",otherRef);
+
 const [dynamicNode,setDynamicNode] = useState(null);
 const [isHovered,setIsHovered] = useState(false);
 
