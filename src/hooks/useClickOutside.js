@@ -6,8 +6,8 @@ function useClickOutside(target, handler, options = {}) {
     throw new Error("useClickOutside: handler must be a function");
   }
   const { enabled = true, events = ["click"] } = options;
-  const eventsArray = Array.isArray(events) && options.events.length > 0  ? events : ['click'];
-  if (!eventsArray.every((e) => typeof e === "string")) {
+  // const eventsArray = Array.isArray(events) && options.events.length > 0  ? events : ['click'];
+  if (!events.every((e) => typeof e === "string")) {
     throw new Error("useClickOutside: all events must be strings");
   }
   const [dynamicNode, setDynamicNode] = useState(null);
@@ -26,16 +26,19 @@ function useClickOutside(target, handler, options = {}) {
       if (!enabled) {
         return;
       }
-      const element = target ? target.current ?? target : dynamicNode;
+      const element = target?.current ?? dynamicNode;
+
+      console.log("useClickOutside: element =", element,event.target);
 
       if (!element || element.contains(event.target)) {
-        return;
+        return; // Click inside the element, do nothing
       }
-      savedHandler.current?.(event);
+      savedHandler.current?.(event);  
     },
     [dynamicNode, target, enabled]
   );
-  useEventListener(eventsArray, listener , target || dynamicNode);
+
+  useEventListener(events, listener, document);
 
   return callbackRef;
 }

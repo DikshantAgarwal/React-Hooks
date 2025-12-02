@@ -1,0 +1,5 @@
+function useWindowResize() {
+    
+}
+
+export {useWindowResize}

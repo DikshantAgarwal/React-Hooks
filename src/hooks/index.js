@@ -4,4 +4,5 @@ import {useFetch} from './useFetch';
 import  {usePrevious} from './usePrevious';
 import {useToggle} from './useToggle';
 import {useInput} from './useInput';
-export { useLocalStorage, useDebounce , useFetch ,usePrevious , useToggle,useInput};
+import {useClickOutside} from './useClickOutside';
+export { useLocalStorage, useDebounce , useFetch ,usePrevious , useToggle,useInput,useClickOutside};
