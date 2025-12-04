@@ -42,7 +42,7 @@ function useEventListener(eventName, handler, target ) {
       // If no target is provided, use the node from the callbackRef logic (if applicable)
       targetElement = dynamicNode
     }
-    
+
     // Ensure the target supports addEventListener
     const isSupported = targetElement && targetElement.addEventListener;
     if (!isSupported) {
@@ -58,6 +58,7 @@ function useEventListener(eventName, handler, target ) {
             targetElement.addEventListener(evName, listener);
         });
     } else {
+      console.log("useEventListener: attaching", eventName, "to", targetElement,listener);
         targetElement.addEventListener(eventName, listener);
     }
  
