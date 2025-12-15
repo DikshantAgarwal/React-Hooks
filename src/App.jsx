@@ -11,13 +11,14 @@ import {UseEventListenerDemo} from './examples/useEventListenerDemo/UseEventList
 import {UseHoverDemo} from './examples/UseHoverDemo/UseHoverDemo'; 
 import { UseClickOutsideDemo } from './examples/UseClickOutsideDemo/UseClickOutsideDemo';
 import UseWindowResizeDemo from './examples/UseWindowResizeDemo/UseWindowResizeDemo';
-
+import { UseScrollPositionDemo } from './examples/UseScrollPositionDemo/UseScrollPositionDemo';
 function App() {
 
   return (
     <>
       <h1>React Hooks</h1>
-      <UseWindowResizeDemo />
+      <UseScrollPositionDemo />
+      {/* <UseWindowResizeDemo /> */}
       {/* <UseClickOutsideDemo /> */}
       {/* <UseHoverDemo /> */}
       {/* <UseEventListenerDemo /> */}

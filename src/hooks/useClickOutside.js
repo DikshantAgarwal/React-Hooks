@@ -28,8 +28,6 @@ function useClickOutside(target, handler, options = {}) {
       }
       const element = target?.current ?? dynamicNode;
 
-      console.log("useClickOutside: element =", element,event.target);
-
       if (!element || element.contains(event.target)) {
         return; // Click inside the element, do nothing
       }

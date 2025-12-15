@@ -58,7 +58,6 @@ function useEventListener(eventName, handler, target ) {
             targetElement.addEventListener(evName, listener);
         });
     } else {
-      console.log("useEventListener: attaching", eventName, "to", targetElement,listener);
         targetElement.addEventListener(eventName, listener);
     }
  
