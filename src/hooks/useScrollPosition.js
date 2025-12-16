@@ -2,7 +2,6 @@ import { useEventListener, useDebounce } from "./index";
 import { useCallback, useState, useEffect, useRef } from "react";
 
 function useScrollPosition(options = { target: null }) {
-  const debounceMS = options.debounceMS || 150;
 
   const previousY = useRef();
   const frameRef = useRef(null);
@@ -28,7 +27,6 @@ const listener = useCallback(() => {
 
     if (frameRef.current) return;
     const el = resolveTarget();
-    console.log("Listening to scroll on:", el);
     frameRef.current = requestAnimationFrame(() => {
       const currentX =
         el === window ? window.scrollX : el?.scrollLeft || 0;
@@ -46,7 +44,6 @@ const listener = useCallback(() => {
     listener(); // Set initial size
   }, [listener]);
 
-  const debouncedListener = useDebounce(listener, debounceMS);
 
   useEventListener("scroll", listener, resolveTarget());
 
