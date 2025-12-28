@@ -1,0 +1,125 @@
+.use-media-query-demo {
+  max-width: 680px;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.use-media-query-demo__header {
+  margin-bottom: 0.75rem;
+}
+
+.use-media-query-demo__title {
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.use-media-query-demo__description {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.use-media-query-demo__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.use-media-query-demo__label {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.use-media-query-demo__input {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.use-media-query-demo__presets {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.use-media-query-demo__preset {
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.use-media-query-demo__preset--active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.use-media-query-demo__status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.use-media-query-demo__badge {
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.use-media-query-demo__badge--match {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #bbf7d0;
+}
+
+.use-media-query-demo__badge--no-match {
+  background: #fff7ed;
+  color: #92400e;
+  border: 1px solid #ffd8a8;
+}
+
+.use-media-query-demo__sample {
+  flex: 1;
+}
+
+.use-media-query-demo__box {
+  width: 100%;
+  max-width: 240px;
+  padding: 0.8rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.use-media-query-demo__box--on {
+  background: #10b981;
+  color: white;
+}
+
+.use-media-query-demo__box--off {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.use-media-query-demo__code {
+  margin-top: 1rem;
+}
+
+.use-media-query-demo__code-block {
+  background: #0f172a;
+  color: #e6eef8;
+  padding: 0.7rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+}
