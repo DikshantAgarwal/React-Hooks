@@ -12,14 +12,20 @@ import {UseHoverDemo} from './examples/UseHoverDemo/UseHoverDemo';
 import { UseClickOutsideDemo } from './examples/UseClickOutsideDemo/UseClickOutsideDemo';
 import UseWindowResizeDemo from './examples/UseWindowResizeDemo/UseWindowResizeDemo';
 import { UseScrollPositionDemo } from './examples/UseScrollPositionDemo/UseScrollPositionDemo';
+import { UseCopyClipBoardDemo } from './examples/UseCopyClipBoardDemo/UseCopyClipBoardDemo';
+import { UseMediaQueryDemo } from './examples/UseMediaQueryDemo/UseMediaQueryDemo';
+import { UseTimeoutDemo } from './examples/UseTimeoutDemo/UseTimeoutDemo';
 function App() {
 
   return (
     <>
       <h1>React Hooks</h1>
-      <UseScrollPositionDemo />
+      {/* <UseScrollPositionDemo /> */}
       {/* <UseWindowResizeDemo /> */}
+      {/* <UseCopyClipBoardDemo /> */}
       {/* <UseClickOutsideDemo /> */}
+      {/* <UseMediaQueryDemo /> */}
+      <UseTimeoutDemo />
       {/* <UseHoverDemo /> */}
       {/* <UseEventListenerDemo /> */}
       {/* <UseInputDemo /> */}

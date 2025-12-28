@@ -1,0 +1,85 @@
+.use-timeout-demo {
+  padding: 16px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  max-width: 680px;
+  background: #fff;
+}
+
+.use-timeout-demo__header {
+  margin-bottom: 12px;
+}
+
+.use-timeout-demo__title {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+}
+
+.use-timeout-demo__description {
+  margin: 0;
+  color: #555;
+}
+
+.use-timeout-demo__controls {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.use-timeout-demo__input {
+  width: 120px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.use-timeout-demo__buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.use-timeout-demo__button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.use-timeout-demo__button:hover {
+  background: #eee;
+}
+
+.use-timeout-demo__button--small {
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.use-timeout-demo__meta {
+  display: flex;
+  gap: 16px;
+  color: #333;
+}
+
+.use-timeout-demo__code {
+  margin-top: 16px;
+}
+
+.use-timeout-demo__code-block {
+  background: #f8f8f8;
+  padding: 12px;
+  border-radius: 6px;
+  overflow: auto;
+}
+
+.use-timeout-demo__divider {
+  border: 0;
+  height: 1px;
+  background: #eee;
+  margin: 18px 0;
+}
+
+.use-timeout-demo__title {
+  margin: 0 0 6px 0;
+}
