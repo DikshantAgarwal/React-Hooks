@@ -1,0 +1,79 @@
+.use-copy-clipboard-demo {
+  max-width: 600px;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.use-copy-clipboard-demo__header {
+  margin-bottom: 0.75rem;
+}
+
+.use-copy-clipboard-demo__title {
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.use-copy-clipboard-demo__description {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.use-copy-clipboard-demo__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.use-copy-clipboard-demo__label {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.use-copy-clipboard-demo__input {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.use-copy-clipboard-demo__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.use-copy-clipboard-demo__button {
+  padding: 0.5rem 0.9rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.use-copy-clipboard-demo__button--primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.use-copy-clipboard-demo__button--success {
+  background: #16a34a;
+  color: #fff;
+}
+
+.use-copy-clipboard-demo__error {
+  color: #b91c1c;
+  font-size: 0.85rem;
+}
+
+.use-copy-clipboard-demo__preview {
+  margin-top: 0.5rem;
+  background: #f7f7f8;
+  padding: 0.6rem;
+  border-radius: 4px;
+  font-size: 0.92rem;
+  white-space: pre-wrap;
+}
