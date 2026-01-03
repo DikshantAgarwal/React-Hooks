@@ -7,6 +7,10 @@ import { useInput } from "./useInput";
 import { useClickOutside } from "./useClickOutside";
 import { useWindowResize } from "./useWindowResize";
 import { useEventListener } from "./useEventListener";
+import { useCopyClipBoard } from "./useCopyClipBoard";
+import { useMediaQuery } from "./useMediaQuery";
+import { useTimeOut } from "./useTimeout";
+import { useInterval } from "./useInterval";
 export {
   useLocalStorage,
   useDebounce,
@@ -17,4 +21,8 @@ export {
   useClickOutside,
   useWindowResize,
   useEventListener,
+  useCopyClipBoard,
+  useMediaQuery,
+  useTimeOut,
+  useInterval,
 };
