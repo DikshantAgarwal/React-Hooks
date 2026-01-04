@@ -8,10 +8,10 @@ not just how to use it.
 
 ---
 
-## Installation
+# Installation
 
 ```bash
-npm install @yourname/react-practical-hooks
+npm install @dikshantagarwal234/react-practical-hooks
 
 ## Live Examples
 
