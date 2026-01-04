@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { useClickOutside } from '../../hooks';
+import { useClickOutside } from '../../hooks/useClickOutside';
 import './UseClickOutsideDemo.css';
 
 function UseClickOutsideDemo() {
