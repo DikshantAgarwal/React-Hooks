@@ -198,6 +198,30 @@ const UseCounterDemo = () => {
           Reset to Initial Value
         </button>
       </div>
+
+      {/* Usage Example */}
+      <section className="use-counter-demo__code">
+        <h2 className="use-counter-demo__code-title">Usage Example</h2>
+        <pre className="use-counter-demo__code-block">
+          <code>{`const { value, inc, dec, updateValue, reset, isMin, isMax } = useCounter(0, {
+  step: 1,
+  min: 0,
+  max: 10,
+  wrap: true // or clamp: true for different boundary behavior
+});
+
+// Increment/Decrement
+<button onClick={inc}>+1</button>
+<button onClick={dec}>-1</button>
+
+// Update value directly
+updateValue(5);
+
+// Check boundaries
+if (isMin()) console.log('At minimum');
+if (isMax()) console.log('At maximum');`}</code>
+        </pre>
+      </section>
     </div>
   );
 };

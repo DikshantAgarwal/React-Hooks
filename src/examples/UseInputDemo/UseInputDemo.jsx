@@ -205,6 +205,14 @@ function UseInputDemo() {
           </div>
         </div>
       </div>
+
+      {/* Usage Example */}
+      <section className="use-input-demo__code">
+        <h2 className="use-input-demo__code-title">Usage Example</h2>
+        <pre className="use-input-demo__code-block">
+          <code>{`const textInput = useInput('', {\n  type: 'text',\n  sanitizeFn: (val) => val.replace(/[^a-z]/gi, '')\n});\n\nconst numberInput = useInput('', { type: 'number' });\n\n// Bind to input element\n<input {...textInput.bind} />\n\n// Access values\nconsole.log(textInput.value);        // Raw string\nconsole.log(textInput.parsedValue);  // Parsed value\nconsole.log(textInput.isValidNumber()); // Validation\n\n// Manual control\ntextInput.setValue('new value');\ntextInput.reset();`}</code>
+        </pre>
+      </section>
     </div>
   );
 }

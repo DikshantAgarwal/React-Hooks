@@ -85,6 +85,22 @@ function UseScrollPositionDemo() {
         Notes: this demo passes a ref element for the container by default. Toggle "Use window as target" to attach the hook to the
         window. Adjust <code>debounceMS</code> to test different debounce settings (if the hook uses it).
       </p>
+
+      {/* Usage Example */}
+      <section className="use-scroll-position-demo__code">
+        <h2 className="use-scroll-position-demo__code-title">Usage Example</h2>
+        <pre className="use-scroll-position-demo__code-block">
+          <code>{`// Track scroll position on an element
+const containerRef = useRef(null);
+const { scrollX, scrollY, direction, backToTop } = useScrollPosition({ target: containerRef, debounceMS: 150 });
+
+// Track window instead
+const { scrollY } = useScrollPosition({ target: undefined, debounceMS: 150 });
+
+// Scroll programmatically
+containerRef.current.scrollTo({ top: 500, behavior: 'smooth' });`}</code>
+        </pre>
+      </section>
     </div>
   );
 }

@@ -163,6 +163,14 @@ function Debounce() {
           </>
         )}
       </div>
+
+      {/* Usage Example */}
+      <section className="debounce__code">
+        <h2 className="debounce__code-title">Usage Example</h2>
+        <pre className="debounce__code-block">
+          <code>{`const [searchTerm, setSearchTerm] = useState('');\nconst debouncedTerm = useDebounce(searchTerm, 500);\n\n// Make API call when debounced value changes\nuseEffect(() => {\n  if (debouncedTerm) {\n    fetchSearchResults(debouncedTerm);\n  }\n}, [debouncedTerm]);\n\n// User types immediately, but API call waits\n<input\n  value={searchTerm}\n  onChange={(e) => setSearchTerm(e.target.value)}\n  placeholder="Type to search..."\n/>`}</code>
+        </pre>
+      </section>
     </div>
   );
 }

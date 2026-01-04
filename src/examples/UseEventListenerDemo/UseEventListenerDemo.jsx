@@ -129,6 +129,13 @@ function UseEventListenerDemo() {
 
             <div className="event-listener-demo__footer">
                 <div className="event-listener-demo__divider"></div>
+
+                <section className="event-listener-demo__code">
+                    <h2 className="event-listener-demo__code-title">Usage Example</h2>
+                    <pre className="event-listener-demo__code-block">
+                        <code>{`// Listen to window/document events\nconst handleResize = useCallback(() => {\n  console.log('Window resized');\n}, []);\nuseEventListener('resize', handleResize, window);\n\n// Listen to element events with useRef\nconst buttonRef = useRef(null);\nconst handleClick = useCallback(() => {\n  console.log('Button clicked');\n}, []);\nuseEventListener('click', handleClick, buttonRef);\n\n// Get ref from hook for scrolling element\nconst scrollRef = useEventListener('scroll', handleScroll);`}</code>
+                    </pre>
+                </section>
             </div>
         </div>
     );

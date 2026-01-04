@@ -294,6 +294,14 @@ const PreviousCounter = () => {
                     )}
                 </p>
             </div>
+
+            {/* Usage Example */}
+            <section className="previous-counter__code">
+              <h2 className="previous-counter__code-title">Usage Example</h2>
+              <pre className="previous-counter__code-block">
+                <code>{`const { previous, history } = usePrevious(value, {\n  historySize: 5,\n  deep: true,\n  debug: false,\n  resetKey: undefined\n});\n\n// Access previous value\nconsole.log(previous);\n\n// Access value history\nconsole.log(history); // Array of previous values\n\n// Deep equality for objects/arrays\nconst options = { deep: true };`}</code>
+              </pre>
+            </section>
         </div>
     );
 };

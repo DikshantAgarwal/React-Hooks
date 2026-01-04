@@ -59,8 +59,16 @@ function LocalStorageDemo() {
         <span className="local-storage-demo__theme-option" onClick={() => setTheme('Light')}>🌞 Light</span>
         <span className="local-storage-demo__theme-option" onClick={() => setTheme('Dark')}>🌙 Dark</span>
       </div>
-    </div>
-  );
+
+    {/* Usage Example */}
+    <section className="local-storage-demo__code">
+      <h2 className="local-storage-demo__code-title">Usage Example</h2>
+      <pre className="local-storage-demo__code-block">
+        <code>{`const [storedValue, setValue, removeValue] = useLocalStorage('key', defaultValue);\n\n// Get stored value\nconsole.log(storedValue);\n\n// Update stored value\nsetValue(newValue);\n\n// Remove from storage\nremoveValue();\n\n// Persists across page refreshes!`}</code>
+      </pre>
+    </section>
+  </div>
+);
 }
 
 export { LocalStorageDemo };

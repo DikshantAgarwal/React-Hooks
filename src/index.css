@@ -66,3 +66,36 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Demo usage / code block styling (applies to all demos) */
+[class$="__code"] {
+  margin-top: 12px;
+  background: rgba(255,255,255,0.02);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+[class$="__code-title"] {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+[class$="__code-block"] {
+  background: rgba(0,0,0,0.06);
+  padding: 12px;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+@media (prefers-color-scheme: light) {
+  [class$="__code"] {
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  [class$="__code-block"] {
+    background: rgba(0,0,0,0.03);
+  }
+}

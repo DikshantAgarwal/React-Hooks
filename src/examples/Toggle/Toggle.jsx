@@ -242,6 +242,20 @@ const Toggle = () => {
                     </span>
                 </div>
             )}
+
+            {/* Usage Example */}
+            <section className="toggle-demo__code">
+                <h2 className="toggle-demo__code-title">Usage Example</h2>
+                <pre className="toggle-demo__code-block">
+                    <code>{`// Boolean mode
+const { value, toggle, setTrue, setFalse, reset } = useToggle(true);
+
+// Array mode
+const { value, next, previous, goToIndex } = useToggle(['light', 'dark']);
+
+// Useful for switch/toggle UI and cyclic state navigation.`}</code>
+                </pre>
+            </section>
         </div>
     );
 };

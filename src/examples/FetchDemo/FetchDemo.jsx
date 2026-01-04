@@ -183,6 +183,14 @@ const FetchDemo = () => {
           )}
         </div>
       )}
+
+      {/* Usage Example */}
+      <section className="fetch-demo__code">
+        <h2 className="fetch-demo__code-title">Usage Example</h2>
+        <pre className="fetch-demo__code-block">
+          <code>{`const { data, status, error, refetch, cancel, duration } = useFetch(url);\n\n// Manual triggering - set URL to trigger fetch\nconst handleFetch = () => {\n  setInputUrl(newUrl);\n};\n\n// Cancel ongoing request\nconst handleCancel = () => {\n  cancel();\n};\n\n// Refetch with same or new URL\nconst handleRefetch = () => {\n  refetch(newUrl);\n};`}</code>
+        </pre>
+      </section>
     </div>
   );
 };

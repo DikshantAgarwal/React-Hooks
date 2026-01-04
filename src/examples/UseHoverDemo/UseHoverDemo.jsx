@@ -63,6 +63,24 @@ function UseHoverDemo() {
                     Hover over the cards to see the hook in action!
                 </p>
             </div>
+
+            <section className="use-hover-demo__code">
+                <h2 className="use-hover-demo__code-title">Usage Example</h2>
+                <pre className="use-hover-demo__code-block">
+                    <code>{`// Method 1: Callback ref pattern
+const [isHovered, hoverRef] = useHover();
+<div ref={hoverRef}>
+  Hovered: {isHovered ? 'true' : 'false'}
+</div>
+
+// Method 2: useRef pattern
+const cardRef = useRef(null);
+const isHovered = useHover(cardRef);
+<div ref={cardRef}>
+  {isHovered && <span>Hovering!</span>}
+</div>`}</code>
+                </pre>
+            </section>
         </div>
     );
 }

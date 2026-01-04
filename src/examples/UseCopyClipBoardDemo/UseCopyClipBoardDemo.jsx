@@ -39,6 +39,23 @@ function UseCopyClipBoardDemo() {
 
         <pre className="use-copy-clipboard-demo__preview">{text}</pre>
       </div>
+
+      {/* Usage Example */}
+      <section className="use-copy-clipboard-demo__code">
+        <h2 className="use-copy-clipboard-demo__code-title">Usage Example</h2>
+        <pre className="use-copy-clipboard-demo__code-block">
+          <code>{`const { copy, isCopied, error } = useCopyClipBoard();
+
+// Copy some text
+copy('Text to copy');
+
+// Check status
+if (isCopied) console.log('Just copied!');
+if (error) console.error(error);
+
+// Useful for copy-to-clipboard buttons or quick-share features.`}</code>
+        </pre>
+      </section>
     </div>
   );
 }
